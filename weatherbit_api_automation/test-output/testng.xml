@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Weather Forcast API Test" >
+	<test name="findBestSurfingPoint">
+		<classes>
+			<class name="tests.GetRequest">
+			</class>
+		</classes>
+	</test>
+</suite>

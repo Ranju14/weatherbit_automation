@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-19T12:46:03 AEDT" name="Default suite" finished-at="2021-03-19T12:46:06 AEDT" duration-ms="2401">
+  <suite started-at="2021-03-19T13:35:34 AEDT" name="Weather Forcast API Test" finished-at="2021-03-19T13:35:36 AEDT" duration-ms="2302">
     <groups>
     </groups>
-    <test started-at="2021-03-19T12:46:03 AEDT" name="Default test" finished-at="2021-03-19T12:46:06 AEDT" duration-ms="2401">
+    <test started-at="2021-03-19T13:35:34 AEDT" name="findBestSurfingPoint" finished-at="2021-03-19T13:35:36 AEDT" duration-ms="2302">
       <class name="tests.GetRequest">
-        <test-method signature="getParametersValuesFromWeatherForecast()[pri:0, instance:tests.GetRequest@3901d134]" started-at="2021-03-19T12:46:03 AEDT" name="getParametersValuesFromWeatherForecast" finished-at="2021-03-19T12:46:06 AEDT" duration-ms="2369" status="PASS">
+        <test-method signature="findBestSurfingPointByPostCode()[pri:0, instance:tests.GetRequest@11a9e7c8]" started-at="2021-03-19T13:35:34 AEDT" name="findBestSurfingPointByPostCode" finished-at="2021-03-19T13:35:36 AEDT" duration-ms="2275" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getParametersValuesFromWeatherForecast -->
+        </test-method> <!-- findBestSurfingPointByPostCode -->
       </class> <!-- tests.GetRequest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- findBestSurfingPoint -->
+  </suite> <!-- Weather Forcast API Test -->
 </testng-results>
