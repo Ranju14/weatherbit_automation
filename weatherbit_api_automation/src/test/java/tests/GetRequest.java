@@ -17,14 +17,20 @@ import com.jayway.restassured.response.Response;
 
 public class GetRequest {
 
-	private static final String POST_CODE = "2026";
+	private static final String POST_CODE1 = "2026";
+	private static final String POST_CODE2 = "2108";
 	private static final String AUSTRALIA_COUNTRY_CODE = "AU";
 	private static final String MAX_NUMBER_DAYS = "90";
+	
+	@DataProvider(name = "postCodes")
+    public static Object[][] postalCodes() {
+        return new Object[][]{{POST_CODE1}, {POST_CODE2}};
+    }
 
 
-	@Test
-	public void findBestSurfingPointByPostCode() {
-		Response res = getWeatherForecast(POST_CODE);
+	@Test(dataProvider = "postCodes")
+	public void findBestSurfingPointByPostCode(String postCode) {
+		Response res = getWeatherForecast(postCode);
 		extractValues(res);
 
 	}
