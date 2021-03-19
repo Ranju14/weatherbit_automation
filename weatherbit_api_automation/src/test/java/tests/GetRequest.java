@@ -1,4 +1,5 @@
 package tests;
+import utils.Constants;
 
 import static com.jayway.restassured.RestAssured.given;
 
@@ -16,15 +17,13 @@ import com.jayway.restassured.response.Response;
 
 public class GetRequest {
 
+	private static final String POST_CODE = "2026";
 	private static final String AUSTRALIA_COUNTRY_CODE = "AU";
 	private static final String MAX_NUMBER_DAYS = "90";
-	private static final String WEATHER_BIT_API_KEY = "5a55d544a7eb4bb18016cdcc2bb7b895";
-	private static final String DAILY_FORECAST_API = "http://api.weatherbit.io/v2.0/forecast/dailynull";
-	private static final String POST_CODE = "2026";
 
 
 	@Test
-	public void getParametersValuesFromWeatherForecast() {
+	public void findBestSurfingPointByPostCode() {
 		Response res = getWeatherForecast(POST_CODE);
 		extractValues(res);
 
@@ -35,9 +34,9 @@ public class GetRequest {
 				parameter("postal_code", POST_CODE).
 				parameter("country", AUSTRALIA_COUNTRY_CODE).
 				parameter("days", MAX_NUMBER_DAYS).
-				parameter("key", WEATHER_BIT_API_KEY).
+				parameter("key", Constants.WEATHER_BIT_API_KEY).
 				when().
-				get(DAILY_FORECAST_API).then().contentType(ContentType.JSON).
+				get(Constants.DAILY_FORECAST_API).then().contentType(ContentType.JSON).
 				assertThat().
 				statusCode(200).
 				extract().response();
