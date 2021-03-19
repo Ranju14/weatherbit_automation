@@ -64,7 +64,9 @@ public class GetRequest {
 			float maxTemp = Float.parseFloat(item.get("max_temp").toString());
 			float windSpeed = Float.parseFloat(item.get("wind_spd").toString());
 			float uvIndex = Float.parseFloat(item.get("uv").toString());
-			if (minTemp > 12 && maxTemp < 30 && windSpeed > 3 && windSpeed < 9 && uvIndex <= 12 ) {
+			DateTime validDate = DateTime.parse(item.get("valid_date").toString());
+            boolean isMondayOrFriday = validDate.getDayOfWeek() == 1 || validDate.getDayOfWeek() == 5;
+			if (minTemp > 12 && maxTemp < 30 && windSpeed > 3 && windSpeed < 9 && uvIndex <= 12 && isMondayOrFriday) {
 				filteredData.add(obj);
 			}
 		}
@@ -78,7 +80,7 @@ public class GetRequest {
 	        if (!filteredData.isEmpty()) {
 	            for (Object obj : filteredData) {
 	                Map<String, Object> item = (Map<String, Object>) obj;
-	                System.out.println(String.format("The best surfing location Lat : %s Lon : %s ", latitude ,longitute));
+	                System.out.println(String.format("The best surfing location Lat : %s Lon : %s Best Surfing Day : %s ", latitude ,longitute, item.get("valid_date")));
 	            }    
 	    }
 	 }
