@@ -5,7 +5,9 @@ import static com.jayway.restassured.RestAssured.given;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.joda.time.DateTime;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -25,8 +27,9 @@ public class GetRequest {
 	public void getParametersValuesFromWeatherForecast() {
 		Response res = getWeatherForecast(POST_CODE);
 		extractValues(res);
-	}
 
+	}
+	
 	private Response getWeatherForecast(String POST_CODE) {
 		Response res = given().
 				parameter("postal_code", POST_CODE).
@@ -38,27 +41,46 @@ public class GetRequest {
 				assertThat().
 				statusCode(200).
 				extract().response();
-//		res.prettyPrint();
 		return res ;
 	}
 
 	private void extractValues(Response response) {
-		
+
 		//extract lat and long
 		Object latitude = response.jsonPath().get("lat");
 		Object longitude = response.jsonPath().get("lon");
-		System.out.println(latitude);
-		System.out.println(longitude);
-		
+
 		//extract all the  parameters from all the array
-	    List data = response.jsonPath().get("data");
-	    System.out.println(data);
+		List data = response.jsonPath().get("data");
+	    List filteredData = filterData(data);
+	    suggestSurfingDay(filteredData,latitude,longitude);
 		
-		//extract parameters validDate from all the array
-		ArrayList<String> date = response.jsonPath().get("data.valid_date");
-		for (String m: date) {
-			System.out.println(m);
-		}
 	}
 
+	private List filterData(List data) {
+		List filteredData = new ArrayList();
+		for (Object obj : data) {
+			Map<String, Object> item = (Map<String, Object>) obj;
+			float minTemp = Float.parseFloat(item.get("min_temp").toString());
+			float maxTemp = Float.parseFloat(item.get("max_temp").toString());
+			float windSpeed = Float.parseFloat(item.get("wind_spd").toString());
+			float uvIndex = Float.parseFloat(item.get("uv").toString());
+			if (minTemp > 12 && maxTemp < 30 && windSpeed > 3 && windSpeed < 9 && uvIndex <= 12 ) {
+				filteredData.add(obj);
+			}
+		}
+		return filteredData;
+	}
+	
+	 private void suggestSurfingDay(List filterdata, Object lat,Object lon) {
+	        List filteredData = filterdata;
+	        Object latitude = lat;
+	        Object longitute = lon;
+	        if (!filteredData.isEmpty()) {
+	            for (Object obj : filteredData) {
+	                Map<String, Object> item = (Map<String, Object>) obj;
+	                System.out.println(String.format("The best surfing location Lat : %s Lon : %s ", latitude ,longitute));
+	            }    
+	    }
+	 }
 }
