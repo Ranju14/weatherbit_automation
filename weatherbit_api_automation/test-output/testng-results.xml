@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-19T15:15:39 AEDT" name="Default suite" finished-at="2021-03-19T15:15:45 AEDT" duration-ms="5093">
+  <suite started-at="2021-03-30T14:12:24 AEDT" name="Default suite" finished-at="2021-03-30T14:12:29 AEDT" duration-ms="4598">
     <groups>
     </groups>
-    <test started-at="2021-03-19T15:15:39 AEDT" name="Default test" finished-at="2021-03-19T15:15:45 AEDT" duration-ms="5093">
-      <class name="tests.GetRequest">
-        <test-method signature="findBestSurfingPointByPostCode(java.lang.String)[pri:0, instance:tests.GetRequest@1fe20588]" started-at="2021-03-19T15:15:39 AEDT" name="findBestSurfingPointByPostCode" data-provider="postCodes" finished-at="2021-03-19T15:15:42 AEDT" duration-ms="2655" status="PASS">
+    <test started-at="2021-03-30T14:12:24 AEDT" name="Default test" finished-at="2021-03-30T14:12:29 AEDT" duration-ms="4598">
+      <class name="tests.WeatherForecastTest">
+        <test-method signature="findBestSurfingPointByPostCode(java.lang.String)[pri:0, instance:tests.WeatherForecastTest@fdefd3f]" started-at="2021-03-30T14:12:24 AEDT" name="findBestSurfingPointByPostCode" data-provider="postCodes" finished-at="2021-03-30T14:12:26 AEDT" duration-ms="1785" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findBestSurfingPointByPostCode -->
-        <test-method signature="findBestSurfingPointByPostCode(java.lang.String)[pri:0, instance:tests.GetRequest@1fe20588]" started-at="2021-03-19T15:15:42 AEDT" name="findBestSurfingPointByPostCode" data-provider="postCodes" finished-at="2021-03-19T15:15:45 AEDT" duration-ms="2403" status="PASS">
+        <test-method signature="findBestSurfingPointByPostCode(java.lang.String)[pri:0, instance:tests.WeatherForecastTest@fdefd3f]" started-at="2021-03-30T14:12:26 AEDT" name="findBestSurfingPointByPostCode" data-provider="postCodes" finished-at="2021-03-30T14:12:29 AEDT" duration-ms="2774" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -29,7 +29,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findBestSurfingPointByPostCode -->
-      </class> <!-- tests.GetRequest -->
+      </class> <!-- tests.WeatherForecastTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
